@@ -208,6 +208,4 @@ Unknown slugs return `404`.
 
 See [DEPLOY.md](DEPLOY.md) for Render + Vercel steps.
 
-## Demo video
 
-See [DEMO.md](DEMO.md) for a 2–5 minute recording script and the assignment form link.
