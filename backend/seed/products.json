@@ -1,0 +1,212 @@
+[
+  {
+    "slug": "iphone-17-pro",
+    "name": "Apple iPhone 17 Pro",
+    "brand": "Apple",
+    "description": "iPhone 17 Pro with a pro camera system, A19 Pro chip, and all-day battery. Shop on EMI backed by mutual funds with 1Fi.",
+    "highlights": [
+      "Storage options: 256 GB and 512 GB",
+      "Colors: Silver and Cosmic Orange",
+      "Front Camera: 18MP with autofocus and Night mode",
+      "Rear Camera: 48MP Fusion system with 8x optical-quality zoom",
+      "Screen Size: 6.3 inch Super Retina XDR"
+    ],
+    "variants": [
+      {
+        "sku": "iphone-17-pro-silver-256",
+        "color": "Silver",
+        "storage": "256 GB",
+        "mrp": 139900,
+        "sellingPrice": 134900,
+        "imageUrl": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "iphone-17-pro-orange-256",
+        "color": "Cosmic Orange",
+        "storage": "256 GB",
+        "mrp": 139900,
+        "sellingPrice": 134900,
+        "imageUrl": "https://images.unsplash.com/photo-1695046280257-d3888902b7d0?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "iphone-17-pro-silver-512",
+        "color": "Silver",
+        "storage": "512 GB",
+        "mrp": 159900,
+        "sellingPrice": 154900,
+        "imageUrl": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "iphone-17-pro-orange-512",
+        "color": "Cosmic Orange",
+        "storage": "512 GB",
+        "mrp": 159900,
+        "sellingPrice": 154900,
+        "imageUrl": "https://images.unsplash.com/photo-1695046280257-d3888902b7d0?auto=format&fit=crop&w=900&q=80"
+      }
+    ],
+    "emiPlans": [
+      {
+        "id": "emi-3m-0",
+        "tenureMonths": 3,
+        "interestRate": 0,
+        "cashbackAmount": 0,
+        "cashbackLabel": null
+      },
+      {
+        "id": "emi-6m-0-cb",
+        "tenureMonths": 6,
+        "interestRate": 0,
+        "cashbackAmount": 1500,
+        "cashbackLabel": "₹1,500 cashback on first EMI"
+      },
+      {
+        "id": "emi-12m-10",
+        "tenureMonths": 12,
+        "interestRate": 10.5,
+        "cashbackAmount": 0,
+        "cashbackLabel": null
+      }
+    ]
+  },
+  {
+    "slug": "samsung-s24-ultra",
+    "name": "Samsung Galaxy S24 Ultra",
+    "brand": "Samsung",
+    "description": "Galaxy S24 Ultra with a 200MP camera, S Pen, and titanium frame. Pay monthly with 1Fi EMI plans.",
+    "highlights": [
+      "Storage options: 256 GB and 512 GB",
+      "Colors: Titanium Black and Titanium Gray",
+      "200MP wide camera with 100x Space Zoom",
+      "Built-in S Pen and Galaxy AI",
+      "6.8 inch Dynamic AMOLED 2X display"
+    ],
+    "variants": [
+      {
+        "sku": "s24-ultra-black-256",
+        "color": "Titanium Black",
+        "storage": "256 GB",
+        "mrp": 129999,
+        "sellingPrice": 124999,
+        "imageUrl": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "s24-ultra-gray-256",
+        "color": "Titanium Gray",
+        "storage": "256 GB",
+        "mrp": 129999,
+        "sellingPrice": 124999,
+        "imageUrl": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "s24-ultra-black-512",
+        "color": "Titanium Black",
+        "storage": "512 GB",
+        "mrp": 149999,
+        "sellingPrice": 144999,
+        "imageUrl": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "s24-ultra-gray-512",
+        "color": "Titanium Gray",
+        "storage": "512 GB",
+        "mrp": 149999,
+        "sellingPrice": 144999,
+        "imageUrl": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80"
+      }
+    ],
+    "emiPlans": [
+      {
+        "id": "emi-3m-0",
+        "tenureMonths": 3,
+        "interestRate": 0,
+        "cashbackAmount": 0,
+        "cashbackLabel": null
+      },
+      {
+        "id": "emi-6m-0-cb",
+        "tenureMonths": 6,
+        "interestRate": 0,
+        "cashbackAmount": 1500,
+        "cashbackLabel": "₹1,500 cashback on first EMI"
+      },
+      {
+        "id": "emi-12m-10",
+        "tenureMonths": 12,
+        "interestRate": 10.5,
+        "cashbackAmount": 0,
+        "cashbackLabel": null
+      }
+    ]
+  },
+  {
+    "slug": "oneplus-13",
+    "name": "OnePlus 13",
+    "brand": "OnePlus",
+    "description": "OnePlus 13 with Snapdragon 8 Elite, Hasselblad cameras, and fast charging. Available on low-cost 1Fi EMI.",
+    "highlights": [
+      "Storage options: 256 GB and 512 GB",
+      "Colors: Midnight and Arctic",
+      "Hasselblad-tuned triple camera",
+      "100W SUPERVOOC charging",
+      "6.82 inch 2K ProXDR display"
+    ],
+    "variants": [
+      {
+        "sku": "oneplus-13-midnight-256",
+        "color": "Midnight",
+        "storage": "256 GB",
+        "mrp": 72999,
+        "sellingPrice": 69999,
+        "imageUrl": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "oneplus-13-arctic-256",
+        "color": "Arctic",
+        "storage": "256 GB",
+        "mrp": 72999,
+        "sellingPrice": 69999,
+        "imageUrl": "https://images.unsplash.com/photo-1678652197831-2d180705cd2c?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "oneplus-13-midnight-512",
+        "color": "Midnight",
+        "storage": "512 GB",
+        "mrp": 79999,
+        "sellingPrice": 76999,
+        "imageUrl": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "oneplus-13-arctic-512",
+        "color": "Arctic",
+        "storage": "512 GB",
+        "mrp": 79999,
+        "sellingPrice": 76999,
+        "imageUrl": "https://images.unsplash.com/photo-1678652197831-2d180705cd2c?auto=format&fit=crop&w=900&q=80"
+      }
+    ],
+    "emiPlans": [
+      {
+        "id": "emi-3m-0",
+        "tenureMonths": 3,
+        "interestRate": 0,
+        "cashbackAmount": 0,
+        "cashbackLabel": null
+      },
+      {
+        "id": "emi-6m-0-cb",
+        "tenureMonths": 6,
+        "interestRate": 0,
+        "cashbackAmount": 1500,
+        "cashbackLabel": "₹1,500 cashback on first EMI"
+      },
+      {
+        "id": "emi-12m-10",
+        "tenureMonths": 12,
+        "interestRate": 10.5,
+        "cashbackAmount": 0,
+        "cashbackLabel": null
+      }
+    ]
+  }
+]
