@@ -28,6 +28,7 @@ Product
   slug            unique URL key, e.g. iphone-17-pro
   name
   brand
+  category          smartphones | laptops | tablets
   description
   highlights[]
   variants[]
@@ -43,6 +44,7 @@ Product
     interestRate
     cashbackAmount
     cashbackLabel
+    backingFund
 ```
 
 Monthly EMI is **not stored**. The API (and UI) compute it from the selected variant price:
@@ -97,7 +99,9 @@ npm run seed
 npm run start:dev
 ```
 
-`npm run seed` writes [backend/seed/products.json](backend/seed/products.json) into MongoDB once. After that, `GET /api/products` and `GET /api/products/:slug` only read from the `products` collection. The API does not import seed files.
+`npm run seed` loads [backend/seed/products.json](backend/seed/products.json) into MongoDB. Each color has its own product photo (for example Cosmic Orange vs Black on iPhone 17 Pro Max). After that, `GET /api/products` and `GET /api/products/:slug` only read from the `products` collection.
+
+Search: `GET /api/products?q=iphone`
 
 The API starts on `http://localhost:3000`. In Compass, open database `onefi` → collection `products`. Change a price there and refresh the page — the UI updates from the database.
 

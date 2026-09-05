@@ -7,9 +7,9 @@ import { ProductPage } from './pages/ProductPage';
 export default function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-svh bg-slate-50 text-slate-800">
+      <div className="min-h-svh overflow-x-hidden bg-slate-50 text-slate-800">
         <Header />
-        <main className="mx-auto max-w-6xl px-4 py-8">
+        <main className="mx-auto min-w-0 max-w-6xl px-4 py-8">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/products/:slug" element={<ProductPage />} />

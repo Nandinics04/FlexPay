@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { getProduct } from '../api';
+import { BackButton } from '../components/BackButton';
 import { ErrorState, LoadingState } from '../components/LoadingState';
+import { ColorProductShot } from '../components/ColorProductShot';
 import type { EmiPlan, ProductDetail, Variant } from '../types';
 import { calculateMonthlyAmount } from '../utils/emi';
 import { formatInr } from '../utils/money';
@@ -13,10 +15,11 @@ function findVariant(
 ): Variant {
   return (
     variants.find(
-      (variant) =>
-        (!color || variant.color === color) &&
-        (!storage || variant.storage === storage),
-    ) ?? variants[0]
+      (variant) => variant.color === color && variant.storage === storage,
+    ) ??
+    variants.find((variant) => variant.color === color) ??
+    variants.find((variant) => variant.storage === storage) ??
+    variants[0]
   );
 }
 
@@ -27,6 +30,17 @@ const colorSwatch: Record<string, string> = {
   'Titanium Gray': 'bg-zinc-400',
   Midnight: 'bg-slate-900',
   Arctic: 'bg-sky-100',
+  Purple: 'bg-violet-400',
+  'Space Grey': 'bg-zinc-600',
+  Graphite: 'bg-neutral-700',
+  Grey: 'bg-zinc-400',
+  Black: 'bg-zinc-900',
+  White: 'bg-white',
+  Natural: 'bg-stone-300',
+  Ultramarine: 'bg-blue-700',
+  Starlight: 'bg-amber-100',
+  Pink: 'bg-pink-400',
+  Porcelain: 'bg-stone-100',
 };
 
 export function ProductPage() {
@@ -37,6 +51,8 @@ export function ProductPage() {
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
   const [selectedPlanId, setSelectedPlanId] = useState<string | null>(null);
+  const [selectedColor, setSelectedColor] = useState<string | null>(null);
+  const [selectedStorage, setSelectedStorage] = useState<string | null>(null);
 
   const load = () => {
     setLoading(true);
@@ -45,21 +61,25 @@ export function ProductPage() {
       .then((data) => {
         setProduct(data);
         setSelectedPlanId(data.emiPlans[0]?.id ?? null);
-        if (!searchParams.get('color') || !searchParams.get('storage')) {
-          const first = data.variants[0];
-          if (first) {
-            setSearchParams(
-              { color: first.color, storage: first.storage },
-              { replace: true },
-            );
-          }
-        }
+        const match = findVariant(
+          data.variants,
+          searchParams.get('color'),
+          searchParams.get('storage'),
+        );
+        setSelectedColor(match.color);
+        setSelectedStorage(match.storage);
+        setSearchParams(
+          { color: match.color, storage: match.storage },
+          { replace: true },
+        );
       })
       .catch((err: Error) => setError(err.message))
       .finally(() => setLoading(false));
   };
 
   useEffect(() => {
+    setSelectedColor(null);
+    setSelectedStorage(null);
     load();
     // Reload when the product URL changes.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -69,12 +89,8 @@ export function ProductPage() {
     if (!product) {
       return null;
     }
-    return findVariant(
-      product.variants,
-      searchParams.get('color'),
-      searchParams.get('storage'),
-    );
-  }, [product, searchParams]);
+    return findVariant(product.variants, selectedColor, selectedStorage);
+  }, [product, selectedColor, selectedStorage]);
 
   const colors = useMemo(
     () => [...new Set(product?.variants.map((item) => item.color) ?? [])],
@@ -105,10 +121,17 @@ export function ProductPage() {
     if (!product || !variant) {
       return;
     }
-    const color = next.color ?? variant.color;
-    const storage = next.storage ?? variant.storage;
-    const match = findVariant(product.variants, color, storage);
-    setSearchParams({ color: match.color, storage: match.storage });
+    const match = findVariant(
+      product.variants,
+      next.color ?? selectedColor ?? variant.color,
+      next.storage ?? selectedStorage ?? variant.storage,
+    );
+    setSelectedColor(match.color);
+    setSelectedStorage(match.storage);
+        setSearchParams(
+      { color: match.color, storage: match.storage },
+      { replace: true },
+    );
   };
 
   const proceed = () => {
@@ -129,31 +152,33 @@ export function ProductPage() {
   }
 
   return (
-    <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-      <div className="overflow-hidden rounded-3xl border border-slate-200 bg-slate-50">
-        <img
-          src={variant.imageUrl}
+    <div>
+      <BackButton to="/" />
+      <div className="grid min-w-0 grid-cols-1 items-start gap-8 lg:grid-cols-2">
+      <div className="min-w-0">
+        <ColorProductShot
+          imageUrl={variant.imageUrl}
+          color={variant.color}
           alt={`${product.name} ${variant.color} ${variant.storage}`}
-          className="h-full max-h-[560px] w-full object-cover"
         />
       </div>
 
-      <div>
+      <div className="min-w-0">
         <p className="text-sm font-medium uppercase tracking-wide text-teal-700">
-          {product.brand}
+          {product.brand} · {product.category}
         </p>
-        <h1 className="mt-1 text-3xl font-semibold text-slate-900">
+        <h1 className="mt-1 break-words text-2xl font-semibold text-slate-900 sm:text-3xl">
           {product.name}
         </h1>
         <p className="mt-1 text-slate-500">
           {variant.storage}, {variant.color}
         </p>
 
-        <div className="mt-4 flex items-end gap-3">
-          <span className="text-3xl font-semibold text-slate-900">
+        <div className="mt-4 flex flex-wrap items-end gap-3">
+          <span className="text-2xl font-semibold text-slate-900 sm:text-3xl">
             {formatInr(variant.sellingPrice)}
           </span>
-          <span className="pb-1 text-lg text-slate-400 line-through">
+          <span className="pb-1 text-base text-slate-400 line-through sm:text-lg">
             {formatInr(variant.mrp)}
           </span>
         </div>
@@ -217,8 +242,8 @@ export function ProductPage() {
             Choose an EMI plan
           </h2>
           <p className="mt-1 text-sm text-slate-500">
-            Plans are backed by mutual funds. Monthly amount updates with the
-            selected variant.
+            Each plan is financed against a mutual-fund category. Monthly EMI
+            updates when you change color or storage.
           </p>
           <div className="mt-4 grid gap-3">
             {plans.map((plan) => (
@@ -253,6 +278,7 @@ export function ProductPage() {
           </ul>
         </div>
       </div>
+      </div>
     </div>
   );
 }
@@ -277,14 +303,19 @@ function EmiCard({
       }`}
     >
       <div className="flex items-start justify-between gap-3">
-        <div>
-          <p className="text-2xl font-semibold text-slate-900">
+        <div className="min-w-0">
+          <p className="break-words text-xl font-semibold text-slate-900 sm:text-2xl">
             {formatInr(plan.monthlyAmount)}
             <span className="text-sm font-medium text-slate-500"> / month</span>
           </p>
           <p className="mt-1 text-sm text-slate-600">
             {plan.tenureMonths} months · {plan.interestRate}% interest
           </p>
+          {plan.backingFund ? (
+            <p className="mt-1 text-xs font-medium text-teal-800">
+              Backed by {plan.backingFund}
+            </p>
+          ) : null}
           {plan.cashbackLabel ? (
             <p className="mt-2 inline-flex rounded-full bg-amber-100 px-2.5 py-1 text-xs font-medium text-amber-800">
               {plan.cashbackLabel}

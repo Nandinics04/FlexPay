@@ -14,8 +14,11 @@ async function request<T>(path: string): Promise<T> {
   return response.json() as Promise<T>;
 }
 
-export function getProducts(): Promise<ProductListItem[]> {
-  return request<ProductListItem[]>('/api/products');
+export function getProducts(query?: string): Promise<ProductListItem[]> {
+  const search = query?.trim()
+    ? `?q=${encodeURIComponent(query.trim())}`
+    : '';
+  return request<ProductListItem[]>(`/api/products${search}`);
 }
 
 export function getProduct(slug: string, sku?: string): Promise<ProductDetail> {

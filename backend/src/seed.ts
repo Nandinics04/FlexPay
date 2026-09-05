@@ -11,12 +11,12 @@ async function bootstrap() {
   const productModel = app.get<Model<ProductDocument>>(
     getModelToken(Product.name),
   );
-  const seedPath = join(process.cwd(), 'seed', 'products.json');
-  const products = JSON.parse(readFileSync(seedPath, 'utf8')) as unknown[];
+  const snapshotPath = join(process.cwd(), 'seed', 'products.json');
+  const products = JSON.parse(readFileSync(snapshotPath, 'utf8')) as unknown[];
 
   await productModel.deleteMany({});
   await productModel.insertMany(products);
-  console.log(`Inserted ${products.length} products into MongoDB from ${seedPath}`);
+  console.log(`Inserted ${products.length} products into MongoDB from ${snapshotPath}`);
   await app.close();
 }
 

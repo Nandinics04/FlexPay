@@ -42,6 +42,9 @@ export class EmiPlan {
 
   @Prop({ type: String, default: null })
   cashbackLabel: string | null;
+
+  @Prop({ type: String, default: null })
+  backingFund: string | null;
 }
 
 export const EmiPlanSchema = SchemaFactory.createForClass(EmiPlan);
@@ -56,6 +59,9 @@ export class Product {
 
   @Prop({ required: true })
   brand: string;
+
+  @Prop({ required: true, default: 'electronics', index: true })
+  category: string;
 
   @Prop({ required: true })
   description: string;

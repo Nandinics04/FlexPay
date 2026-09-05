@@ -10,8 +10,8 @@ export class ProductsController {
   constructor(private readonly productsService: ProductsService) {}
 
   @Get()
-  findAll(): Promise<ProductListItem[]> {
-    return this.productsService.findAll();
+  findAll(@Query('q') query?: string): Promise<ProductListItem[]> {
+    return this.productsService.findAll(query);
   }
 
   @Get(':slug')

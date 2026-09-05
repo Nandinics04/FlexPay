@@ -1,48 +1,64 @@
 [
   {
-    "slug": "iphone-17-pro",
-    "name": "Apple iPhone 17 Pro",
+    "slug": "iphone-17-pro-max",
+    "name": "Apple iPhone 17 Pro Max",
     "brand": "Apple",
-    "description": "iPhone 17 Pro with a pro camera system, A19 Pro chip, and all-day battery. Shop on EMI backed by mutual funds with 1Fi.",
+    "category": "smartphones",
+    "description": "iPhone 17 Pro Max with a Pro camera system and Cosmic Orange, Black, and Silver finishes. Shop on EMI backed by mutual funds with 1Fi.",
     "highlights": [
-      "Storage options: 256 GB and 512 GB",
-      "Colors: Silver and Cosmic Orange",
-      "Front Camera: 18MP with autofocus and Night mode",
-      "Rear Camera: 48MP Fusion system with 8x optical-quality zoom",
-      "Screen Size: 6.3 inch Super Retina XDR"
+      "Colors: Cosmic Orange, Black, Silver",
+      "Storage: 256 GB and 512 GB",
+      "6.9 inch Super Retina XDR",
+      "A19 Pro chip"
     ],
     "variants": [
       {
-        "sku": "iphone-17-pro-silver-256",
-        "color": "Silver",
-        "storage": "256 GB",
-        "mrp": 139900,
-        "sellingPrice": 134900,
-        "imageUrl": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=900&q=80"
-      },
-      {
-        "sku": "iphone-17-pro-orange-256",
+        "sku": "iphone-17-pro-max-orange-256",
         "color": "Cosmic Orange",
         "storage": "256 GB",
-        "mrp": 139900,
-        "sellingPrice": 134900,
-        "imageUrl": "https://images.unsplash.com/photo-1695046280257-d3888902b7d0?auto=format&fit=crop&w=900&q=80"
+        "mrp": 169900,
+        "sellingPrice": 164900,
+        "imageUrl": "https://images.unsplash.com/photo-1757709608566-4b9fd41a7af5?auto=format&fit=crop&w=900&q=80"
       },
       {
-        "sku": "iphone-17-pro-silver-512",
+        "sku": "iphone-17-pro-max-black-256",
+        "color": "Black",
+        "storage": "256 GB",
+        "mrp": 169900,
+        "sellingPrice": 164900,
+        "imageUrl": "https://images.unsplash.com/photo-1609692814858-f7cd2f0afa4f?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "iphone-17-pro-max-silver-256",
         "color": "Silver",
-        "storage": "512 GB",
-        "mrp": 159900,
-        "sellingPrice": 154900,
-        "imageUrl": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?auto=format&fit=crop&w=900&q=80"
+        "storage": "256 GB",
+        "mrp": 169900,
+        "sellingPrice": 164900,
+        "imageUrl": "https://images.unsplash.com/photo-1726587912121-ea21fcc57ff8?auto=format&fit=crop&w=900&q=80"
       },
       {
-        "sku": "iphone-17-pro-orange-512",
+        "sku": "iphone-17-pro-max-orange-512",
         "color": "Cosmic Orange",
         "storage": "512 GB",
-        "mrp": 159900,
-        "sellingPrice": 154900,
-        "imageUrl": "https://images.unsplash.com/photo-1695046280257-d3888902b7d0?auto=format&fit=crop&w=900&q=80"
+        "mrp": 189900,
+        "sellingPrice": 184900,
+        "imageUrl": "https://images.unsplash.com/photo-1757709608566-4b9fd41a7af5?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "iphone-17-pro-max-black-512",
+        "color": "Black",
+        "storage": "512 GB",
+        "mrp": 189900,
+        "sellingPrice": 184900,
+        "imageUrl": "https://images.unsplash.com/photo-1609692814858-f7cd2f0afa4f?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "iphone-17-pro-max-silver-512",
+        "color": "Silver",
+        "storage": "512 GB",
+        "mrp": 189900,
+        "sellingPrice": 184900,
+        "imageUrl": "https://images.unsplash.com/photo-1726587912121-ea21fcc57ff8?auto=format&fit=crop&w=900&q=80"
       }
     ],
     "emiPlans": [
@@ -51,21 +67,24 @@
         "tenureMonths": 3,
         "interestRate": 0,
         "cashbackAmount": 0,
-        "cashbackLabel": null
+        "cashbackLabel": null,
+        "backingFund": "Liquid mutual funds"
       },
       {
         "id": "emi-6m-0-cb",
         "tenureMonths": 6,
         "interestRate": 0,
         "cashbackAmount": 1500,
-        "cashbackLabel": "₹1,500 cashback on first EMI"
+        "cashbackLabel": "₹1,500 cashback on first EMI",
+        "backingFund": "Short-duration debt funds"
       },
       {
         "id": "emi-12m-10",
         "tenureMonths": 12,
         "interestRate": 10.5,
         "cashbackAmount": 0,
-        "cashbackLabel": null
+        "cashbackLabel": null,
+        "backingFund": "Hybrid mutual funds"
       }
     ]
   },
@@ -73,13 +92,12 @@
     "slug": "samsung-s24-ultra",
     "name": "Samsung Galaxy S24 Ultra",
     "brand": "Samsung",
-    "description": "Galaxy S24 Ultra with a 200MP camera, S Pen, and titanium frame. Pay monthly with 1Fi EMI plans.",
+    "category": "smartphones",
+    "description": "Galaxy S24 Ultra in Titanium Black and Titanium Gray. Pay monthly with 1Fi EMI plans.",
     "highlights": [
-      "Storage options: 256 GB and 512 GB",
-      "Colors: Titanium Black and Titanium Gray",
-      "200MP wide camera with 100x Space Zoom",
-      "Built-in S Pen and Galaxy AI",
-      "6.8 inch Dynamic AMOLED 2X display"
+      "Colors: Titanium Black, Titanium Gray",
+      "Storage: 256 GB and 512 GB",
+      "200MP camera and S Pen"
     ],
     "variants": [
       {
@@ -88,7 +106,7 @@
         "storage": "256 GB",
         "mrp": 129999,
         "sellingPrice": 124999,
-        "imageUrl": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=900&q=80"
+        "imageUrl": "https://sell.gameloot.in/wp-content/uploads/sites/2/2025/10/Samsung-Galaxy-S24-Ultra-5G.jpg"
       },
       {
         "sku": "s24-ultra-gray-256",
@@ -96,7 +114,7 @@
         "storage": "256 GB",
         "mrp": 129999,
         "sellingPrice": 124999,
-        "imageUrl": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80"
+        "imageUrl": "https://oldsold.in/cdn/shop/files/SA269601_0ed86737-74d7-44f9-b29c-12f62d06292a.jpg?v=1784119394&width=713"
       },
       {
         "sku": "s24-ultra-black-512",
@@ -104,7 +122,7 @@
         "storage": "512 GB",
         "mrp": 149999,
         "sellingPrice": 144999,
-        "imageUrl": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=900&q=80"
+        "imageUrl": "https://sell.gameloot.in/wp-content/uploads/sites/2/2025/10/Samsung-Galaxy-S24-Ultra-5G.jpg"
       },
       {
         "sku": "s24-ultra-gray-512",
@@ -112,7 +130,7 @@
         "storage": "512 GB",
         "mrp": 149999,
         "sellingPrice": 144999,
-        "imageUrl": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80"
+        "imageUrl": "https://oldsold.in/cdn/shop/files/SA269601_0ed86737-74d7-44f9-b29c-12f62d06292a.jpg?v=1784119394&width=713"
       }
     ],
     "emiPlans": [
@@ -121,21 +139,24 @@
         "tenureMonths": 3,
         "interestRate": 0,
         "cashbackAmount": 0,
-        "cashbackLabel": null
+        "cashbackLabel": null,
+        "backingFund": "Liquid mutual funds"
       },
       {
         "id": "emi-6m-0-cb",
         "tenureMonths": 6,
         "interestRate": 0,
         "cashbackAmount": 1500,
-        "cashbackLabel": "₹1,500 cashback on first EMI"
+        "cashbackLabel": "₹1,500 cashback on first EMI",
+        "backingFund": "Short-duration debt funds"
       },
       {
         "id": "emi-12m-10",
         "tenureMonths": 12,
         "interestRate": 10.5,
         "cashbackAmount": 0,
-        "cashbackLabel": null
+        "cashbackLabel": null,
+        "backingFund": "Hybrid mutual funds"
       }
     ]
   },
@@ -143,22 +164,20 @@
     "slug": "oneplus-13",
     "name": "OnePlus 13",
     "brand": "OnePlus",
-    "description": "OnePlus 13 with Snapdragon 8 Elite, Hasselblad cameras, and fast charging. Available on low-cost 1Fi EMI.",
+    "category": "smartphones",
+    "description": "OnePlus 13 in Purple and Arctic. Available on 1Fi EMI.",
     "highlights": [
-      "Storage options: 256 GB and 512 GB",
-      "Colors: Midnight and Arctic",
-      "Hasselblad-tuned triple camera",
-      "100W SUPERVOOC charging",
-      "6.82 inch 2K ProXDR display"
+      "Colors: Purple, Arctic",
+      "Storage: 256 GB and 512 GB"
     ],
     "variants": [
       {
-        "sku": "oneplus-13-midnight-256",
-        "color": "Midnight",
+        "sku": "oneplus-13-purple-256",
+        "color": "Purple",
         "storage": "256 GB",
         "mrp": 72999,
         "sellingPrice": 69999,
-        "imageUrl": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80"
+        "imageUrl": "https://images.unsplash.com/photo-1772683828745-7c2b6542adfb?auto=format&fit=crop&w=900&q=80"
       },
       {
         "sku": "oneplus-13-arctic-256",
@@ -166,15 +185,15 @@
         "storage": "256 GB",
         "mrp": 72999,
         "sellingPrice": 69999,
-        "imageUrl": "https://images.unsplash.com/photo-1678652197831-2d180705cd2c?auto=format&fit=crop&w=900&q=80"
+        "imageUrl": "https://images.unsplash.com/photo-1760443728266-19eea21a3d0b?auto=format&fit=crop&w=900&q=80"
       },
       {
-        "sku": "oneplus-13-midnight-512",
-        "color": "Midnight",
+        "sku": "oneplus-13-purple-512",
+        "color": "Purple",
         "storage": "512 GB",
         "mrp": 79999,
         "sellingPrice": 76999,
-        "imageUrl": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80"
+        "imageUrl": "https://images.unsplash.com/photo-1772683828745-7c2b6542adfb?auto=format&fit=crop&w=900&q=80"
       },
       {
         "sku": "oneplus-13-arctic-512",
@@ -182,7 +201,7 @@
         "storage": "512 GB",
         "mrp": 79999,
         "sellingPrice": 76999,
-        "imageUrl": "https://images.unsplash.com/photo-1678652197831-2d180705cd2c?auto=format&fit=crop&w=900&q=80"
+        "imageUrl": "https://images.unsplash.com/photo-1760443728266-19eea21a3d0b?auto=format&fit=crop&w=900&q=80"
       }
     ],
     "emiPlans": [
@@ -191,21 +210,182 @@
         "tenureMonths": 3,
         "interestRate": 0,
         "cashbackAmount": 0,
-        "cashbackLabel": null
+        "cashbackLabel": null,
+        "backingFund": "Liquid mutual funds"
       },
       {
         "id": "emi-6m-0-cb",
         "tenureMonths": 6,
         "interestRate": 0,
         "cashbackAmount": 1500,
-        "cashbackLabel": "₹1,500 cashback on first EMI"
+        "cashbackLabel": "₹1,500 cashback on first EMI",
+        "backingFund": "Short-duration debt funds"
       },
       {
         "id": "emi-12m-10",
         "tenureMonths": 12,
         "interestRate": 10.5,
         "cashbackAmount": 0,
-        "cashbackLabel": null
+        "cashbackLabel": null,
+        "backingFund": "Hybrid mutual funds"
+      }
+    ]
+  },
+  {
+    "slug": "google-pixel-9-pro",
+    "name": "Google Pixel 9 Pro",
+    "brand": "Google",
+    "category": "smartphones",
+    "description": "Pixel 9 Pro in Black and Porcelain. Shop on 1Fi EMI.",
+    "highlights": [
+      "Colors: Black, Porcelain",
+      "Storage: 128 GB and 256 GB"
+    ],
+    "variants": [
+      {
+        "sku": "pixel-9-pro-black-128",
+        "color": "Black",
+        "storage": "128 GB",
+        "mrp": 109999,
+        "sellingPrice": 99999,
+        "imageUrl": "https://images.unsplash.com/photo-1727132528094-117c9dceb047?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "pixel-9-pro-porcelain-128",
+        "color": "Porcelain",
+        "storage": "128 GB",
+        "mrp": 109999,
+        "sellingPrice": 99999,
+        "imageUrl": "https://images.unsplash.com/photo-1635870723802-e88d76ae324e?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "pixel-9-pro-black-256",
+        "color": "Black",
+        "storage": "256 GB",
+        "mrp": 119999,
+        "sellingPrice": 109999,
+        "imageUrl": "https://images.unsplash.com/photo-1727132528094-117c9dceb047?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "pixel-9-pro-porcelain-256",
+        "color": "Porcelain",
+        "storage": "256 GB",
+        "mrp": 119999,
+        "sellingPrice": 109999,
+        "imageUrl": "https://images.unsplash.com/photo-1635870723802-e88d76ae324e?auto=format&fit=crop&w=900&q=80"
+      }
+    ],
+    "emiPlans": [
+      {
+        "id": "emi-3m-0",
+        "tenureMonths": 3,
+        "interestRate": 0,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Liquid mutual funds"
+      },
+      {
+        "id": "emi-6m-0-cb",
+        "tenureMonths": 6,
+        "interestRate": 0,
+        "cashbackAmount": 1500,
+        "cashbackLabel": "₹1,500 cashback on first EMI",
+        "backingFund": "Short-duration debt funds"
+      },
+      {
+        "id": "emi-12m-10",
+        "tenureMonths": 12,
+        "interestRate": 10.5,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Hybrid mutual funds"
+      }
+    ]
+  },
+  {
+    "slug": "iphone-16",
+    "name": "Apple iPhone 16",
+    "brand": "Apple",
+    "category": "smartphones",
+    "description": "iPhone 16 in White, Natural, and Ultramarine. Available on 1Fi EMI.",
+    "highlights": [
+      "Colors: White, Natural, Ultramarine",
+      "Storage: 128 GB and 256 GB"
+    ],
+    "variants": [
+      {
+        "sku": "iphone-16-white-128",
+        "color": "White",
+        "storage": "128 GB",
+        "mrp": 79900,
+        "sellingPrice": 76900,
+        "imageUrl": "https://images.unsplash.com/photo-1736173155811-e8142fd553ee?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "iphone-16-natural-128",
+        "color": "Natural",
+        "storage": "128 GB",
+        "mrp": 79900,
+        "sellingPrice": 76900,
+        "imageUrl": "https://images.unsplash.com/photo-1710023038502-ba80a70a9f53?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "iphone-16-ultramarine-128",
+        "color": "Ultramarine",
+        "storage": "128 GB",
+        "mrp": 79900,
+        "sellingPrice": 76900,
+        "imageUrl": "https://images.unsplash.com/photo-1726839662712-83fadeddecff?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "iphone-16-white-256",
+        "color": "White",
+        "storage": "256 GB",
+        "mrp": 89900,
+        "sellingPrice": 86900,
+        "imageUrl": "https://images.unsplash.com/photo-1736173155811-e8142fd553ee?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "iphone-16-natural-256",
+        "color": "Natural",
+        "storage": "256 GB",
+        "mrp": 89900,
+        "sellingPrice": 86900,
+        "imageUrl": "https://images.unsplash.com/photo-1710023038502-ba80a70a9f53?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "iphone-16-ultramarine-256",
+        "color": "Ultramarine",
+        "storage": "256 GB",
+        "mrp": 89900,
+        "sellingPrice": 86900,
+        "imageUrl": "https://images.unsplash.com/photo-1726839662712-83fadeddecff?auto=format&fit=crop&w=900&q=80"
+      }
+    ],
+    "emiPlans": [
+      {
+        "id": "emi-3m-0",
+        "tenureMonths": 3,
+        "interestRate": 0,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Liquid mutual funds"
+      },
+      {
+        "id": "emi-6m-0-cb",
+        "tenureMonths": 6,
+        "interestRate": 0,
+        "cashbackAmount": 1500,
+        "cashbackLabel": "₹1,500 cashback on first EMI",
+        "backingFund": "Short-duration debt funds"
+      },
+      {
+        "id": "emi-12m-10",
+        "tenureMonths": 12,
+        "interestRate": 10.5,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Hybrid mutual funds"
       }
     ]
   }

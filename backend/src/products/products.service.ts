@@ -8,6 +8,7 @@ export type ProductListItem = {
   slug: string;
   name: string;
   brand: string;
+  category: string;
   startingPrice: number;
   mrp: number;
   imageUrl: string;
@@ -19,6 +20,7 @@ export type ProductDetail = {
   slug: string;
   name: string;
   brand: string;
+  category: string;
   description: string;
   highlights: string[];
   variants: Variant[];
@@ -32,8 +34,9 @@ export class ProductsService {
     private readonly productModel: Model<ProductDocument>,
   ) {}
 
-  async findAll(): Promise<ProductListItem[]> {
-    const products = await this.productModel.find().sort({ name: 1 }).lean();
+  async findAll(query?: string): Promise<ProductListItem[]> {
+    const filter = this.buildSearchFilter(query);
+    const products = await this.productModel.find(filter).sort({ name: 1 }).lean();
     return products.map((product) => {
       const cheapest = [...product.variants].sort(
         (a, b) => a.sellingPrice - b.sellingPrice,
@@ -42,6 +45,7 @@ export class ProductsService {
         slug: product.slug,
         name: product.name,
         brand: product.brand,
+        category: product.category,
         startingPrice: cheapest?.sellingPrice ?? 0,
         mrp: cheapest?.mrp ?? 0,
         imageUrl: cheapest?.imageUrl ?? '',
@@ -63,6 +67,7 @@ export class ProductsService {
       slug: product.slug,
       name: product.name,
       brand: product.brand,
+      category: product.category,
       description: product.description,
       highlights: product.highlights,
       variants: product.variants,
@@ -74,6 +79,24 @@ export class ProductsService {
           plan.tenureMonths,
         ),
       })),
+    };
+  }
+
+  private buildSearchFilter(query?: string) {
+    const term = query?.trim();
+    if (!term) {
+      return {};
+    }
+    const escaped = term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const match = new RegExp(escaped, 'i');
+    return {
+      $or: [
+        { name: match },
+        { brand: match },
+        { category: match },
+        { description: match },
+        { slug: match },
+      ],
     };
   }
 }

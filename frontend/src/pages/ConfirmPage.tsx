@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { getProduct } from '../api';
+import { BackButton } from '../components/BackButton';
 import { ErrorState, LoadingState } from '../components/LoadingState';
+import { ColorProductShot } from '../components/ColorProductShot';
 import type { ProductDetail } from '../types';
 import { calculateMonthlyAmount } from '../utils/emi';
 import { formatInr } from '../utils/money';
@@ -66,6 +68,9 @@ export function ConfirmPage() {
 
   return (
     <div className="mx-auto max-w-2xl">
+      <BackButton
+        to={`/products/${product.slug}?color=${encodeURIComponent(variant.color)}&storage=${encodeURIComponent(variant.storage)}`}
+      />
       <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
         <p className="text-sm font-medium uppercase tracking-wide text-teal-700">
           Plan selected
@@ -79,10 +84,11 @@ export function ConfirmPage() {
         </p>
 
         <div className="mt-6 flex gap-4 rounded-2xl bg-slate-50 p-4">
-          <img
-            src={variant.imageUrl}
+          <ColorProductShot
+            imageUrl={variant.imageUrl}
+            color={variant.color}
             alt={product.name}
-            className="h-24 w-24 rounded-xl object-cover"
+            compact
           />
           <div>
             <p className="font-semibold text-slate-900">{product.name}</p>
@@ -120,6 +126,12 @@ export function ConfirmPage() {
               {plan.cashbackAmount > 0
                 ? formatInr(plan.cashbackAmount)
                 : 'None'}
+            </dd>
+          </div>
+          <div className="col-span-2 rounded-xl border border-teal-100 bg-teal-50/70 p-3">
+            <dt className="text-slate-500">Mutual fund backing</dt>
+            <dd className="mt-1 text-lg font-semibold text-teal-900">
+              {plan.backingFund ?? 'Mutual funds'}
             </dd>
           </div>
         </dl>
