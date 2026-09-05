@@ -14,7 +14,7 @@
 2. In [Render](https://render.com), New → Web Service → connect the repo.
 3. Settings:
    - Root directory: `backend`
-   - Build command: `npm install && npm run build`
+   - Build command: `npm install --include=dev && npm run build`
    - Start command: `npm run start:prod`
 4. Environment variables:
    - `MONGODB_URI` = Atlas URI
