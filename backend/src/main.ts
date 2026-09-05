@@ -6,9 +6,26 @@ async function bootstrap() {
 
   app.setGlobalPrefix('api');
 
-  const frontendOrigin = process.env.FRONTEND_ORIGIN ?? 'http://localhost:5173';
+  const allowedOrigins = (process.env.FRONTEND_ORIGIN ?? 'http://localhost:5173')
+    .split(',')
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+
   app.enableCors({
-    origin: frontendOrigin.split(',').map((origin) => origin.trim()),
+    origin: (
+      origin: string | undefined,
+      callback: (error: Error | null, allow?: boolean) => void,
+    ) => {
+      if (
+        !origin ||
+        allowedOrigins.includes(origin) ||
+        origin.endsWith('.vercel.app')
+      ) {
+        callback(null, true);
+        return;
+      }
+      callback(null, false);
+    },
     methods: ['GET', 'POST', 'OPTIONS'],
   });
 
