@@ -23,13 +23,15 @@ export function galleryItems(
   media: ProductMedia[] = [],
 ): ProductMedia[] {
   const extras = media
-    .map((item) => ({
-      type: item.type || inferMediaType(item.url),
+    .map((item): ProductMedia => ({
+      type: item.type ?? inferMediaType(item.url),
       url: item.url.trim(),
     }))
     .filter((item) => item.url && item.url !== coverImage);
 
-  return [{ type: 'image', url: coverImage }, ...extras].filter(
-    (item) => item.url,
-  );
+  const items: ProductMedia[] = [
+    { type: 'image', url: coverImage },
+    ...extras,
+  ];
+  return items.filter((item) => item.url);
 }
