@@ -2,15 +2,17 @@ import { useEffect, useMemo, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { getProduct } from '../api';
 import { BackButton } from '../components/BackButton';
+import { DiscountBadge } from '../components/DiscountBadge';
 import { ErrorState, LoadingState } from '../components/LoadingState';
 import { ColorProductShot } from '../components/ColorProductShot';
+import { QuantityStepper } from '../components/QuantityStepper';
 import type { ProductDetail } from '../types';
-import { calculateMonthlyAmount } from '../utils/emi';
-import { formatInr } from '../utils/money';
+import { checkoutQuery, checkoutSummary } from '../utils/checkout';
+import { discountPercent, formatInr } from '../utils/money';
 
 export function ConfirmPage() {
   const { slug = '' } = useParams();
-  const [searchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [product, setProduct] = useState<ProductDetail | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(true);
@@ -26,28 +28,13 @@ export function ConfirmPage() {
     if (!product) {
       return null;
     }
-    const color = searchParams.get('color');
-    const storage = searchParams.get('storage');
-    const planId = searchParams.get('plan');
-    const variant =
-      product.variants.find(
-        (item) => item.color === color && item.storage === storage,
-      ) ?? product.variants[0];
-    const planRule = product.emiPlans.find((item) => item.id === planId);
-    if (!variant || !planRule) {
-      return null;
-    }
-    return {
-      variant,
-      plan: {
-        ...planRule,
-        monthlyAmount: calculateMonthlyAmount(
-          variant.sellingPrice,
-          planRule.interestRate,
-          planRule.tenureMonths,
-        ),
-      },
-    };
+    return checkoutSummary(
+      product,
+      searchParams.get('color'),
+      searchParams.get('storage'),
+      searchParams.get('plan'),
+      searchParams.get('qty'),
+    );
   }, [product, searchParams]);
 
   if (loading) {
@@ -64,12 +51,14 @@ export function ConfirmPage() {
     );
   }
 
-  const { variant, plan } = summary;
+  const { variant, plan, quantity, lineTotal } = summary;
+  const query = checkoutQuery(variant.color, variant.storage, plan.id, quantity);
+  const off = discountPercent(variant.mrp, variant.sellingPrice);
 
   return (
     <div className="mx-auto max-w-2xl">
       <BackButton
-        to={`/products/${product.slug}?color=${encodeURIComponent(variant.color)}&storage=${encodeURIComponent(variant.storage)}`}
+        to={`/products/${product.slug}?color=${encodeURIComponent(variant.color)}&storage=${encodeURIComponent(variant.storage)}&qty=${quantity}`}
       />
       <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
         <p className="text-sm font-medium uppercase tracking-wide text-teal-700">
@@ -79,8 +68,8 @@ export function ConfirmPage() {
           You are ready to proceed
         </h1>
         <p className="mt-2 text-slate-600">
-          Review the product and EMI details below. This assignment demo does
-          not collect payment.
+          Review the product, quantity and EMI details, then continue with your
+          details and payment.
         </p>
 
         <div className="mt-6 flex gap-4 rounded-2xl bg-slate-50 p-4">
@@ -95,9 +84,29 @@ export function ConfirmPage() {
             <p className="text-sm text-slate-500">
               {variant.color} · {variant.storage}
             </p>
-            <p className="mt-2 text-lg font-semibold text-slate-900">
-              {formatInr(variant.sellingPrice)}
-            </p>
+            <div className="mt-2 flex flex-wrap items-center gap-2">
+              <p className="text-lg font-semibold text-slate-900">
+                {formatInr(lineTotal)}
+              </p>
+              <DiscountBadge percent={off} />
+            </div>
+            <div className="mt-3 flex items-center gap-3">
+              <p className="text-xs font-medium text-slate-500">Quantity</p>
+              <QuantityStepper
+                value={quantity}
+                onChange={(next) => {
+                  setSearchParams(
+                    {
+                      color: variant.color,
+                      storage: variant.storage,
+                      plan: plan.id,
+                      qty: String(next),
+                    },
+                    { replace: true },
+                  );
+                }}
+              />
+            </div>
           </div>
         </div>
 
@@ -128,26 +137,20 @@ export function ConfirmPage() {
                 : 'None'}
             </dd>
           </div>
-          <div className="col-span-2 rounded-xl border border-teal-100 bg-teal-50/70 p-3">
-            <dt className="text-slate-500">Mutual fund backing</dt>
-            <dd className="mt-1 text-lg font-semibold text-teal-900">
-              {plan.backingFund ?? 'Mutual funds'}
-            </dd>
-          </div>
         </dl>
 
         <div className="mt-6 flex flex-col gap-3 sm:flex-row">
           <Link
-            to={`/products/${product.slug}?color=${encodeURIComponent(variant.color)}&storage=${encodeURIComponent(variant.storage)}`}
+            to={`/products/${product.slug}?color=${encodeURIComponent(variant.color)}&storage=${encodeURIComponent(variant.storage)}&qty=${quantity}`}
             className="flex-1 rounded-xl border border-slate-300 px-4 py-3 text-center font-medium text-slate-700 hover:bg-slate-50"
           >
             Change plan
           </Link>
           <Link
-            to="/"
+            to={`/products/${product.slug}/details?${query}`}
             className="flex-1 rounded-xl bg-teal-600 px-4 py-3 text-center font-semibold text-white hover:bg-teal-700"
           >
-            Back to products
+            Continue
           </Link>
         </div>
       </div>

@@ -91,7 +91,7 @@ cd backend
 copy .env.example .env
 ```
 
-Set `MONGODB_URI` in `.env` if you use Atlas.
+Set `MONGODB_URI` in `.env` if you use Atlas. Set `JWT_SECRET` to any long random string. Google sign-in also needs `GOOGLE_CLIENT_ID`, `GOOGLE_CLIENT_SECRET`, and `GOOGLE_CALLBACK_URL` (see `.env.example`).
 
 ```bash
 npm install
@@ -150,9 +150,22 @@ Returns the catalog for the home page.
 ]
 ```
 
+### Auth
+
+The home catalog is public. Product details and EMI plans require a JWT.
+
+- `POST /api/auth/register` — `{ name, email, password }`
+- `POST /api/auth/login` — `{ email, password }`
+- `GET /api/auth/me` — `Authorization: Bearer <token>`
+- `POST /api/auth/logout`
+- `GET /api/auth/google` — starts Google OAuth (`?next=/products/iphone-16`)
+- `GET /api/auth/google/callback` — Google returns here, then redirects to the frontend with `?token=`
+
+Password must be at least 8 characters.
+
 ### `GET /api/products/:slug`
 
-Returns one product, its variants, and EMI plans. Optional `?sku=` selects which variant the monthly amounts are calculated for.
+Requires `Authorization: Bearer <token>`. Returns one product, its variants, and EMI plans. Optional `?sku=` selects which variant the monthly amounts are calculated for.
 
 Example: `GET /api/products/iphone-17-pro`
 

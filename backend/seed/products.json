@@ -388,5 +388,509 @@
         "backingFund": "Hybrid mutual funds"
       }
     ]
+  },
+  {
+    "slug": "prestige-omega-cookware-set",
+    "name": "Prestige Omega Deluxe Cookware Set",
+    "brand": "Prestige",
+    "category": "utensils",
+    "description": "Non-stick cookware set for everyday Indian cooking. Pay monthly with 1Fi EMI.",
+    "highlights": [
+      "Granite non-stick coating",
+      "Gas and induction compatible",
+      "3-piece and 5-piece sets"
+    ],
+    "variants": [
+      {
+        "sku": "prestige-omega-black-3",
+        "color": "Black",
+        "storage": "3-piece",
+        "mrp": 3999,
+        "sellingPrice": 2999,
+        "imageUrl": "https://images.unsplash.com/photo-1584990347449-39b4c041c2c1?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "prestige-omega-black-5",
+        "color": "Black",
+        "storage": "5-piece",
+        "mrp": 5999,
+        "sellingPrice": 4499,
+        "imageUrl": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=900&q=80"
+      }
+    ],
+    "emiPlans": [
+      {
+        "id": "emi-3m-0",
+        "tenureMonths": 3,
+        "interestRate": 0,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Liquid mutual funds"
+      },
+      {
+        "id": "emi-6m-0-cb",
+        "tenureMonths": 6,
+        "interestRate": 0,
+        "cashbackAmount": 200,
+        "cashbackLabel": "₹200 cashback on first EMI",
+        "backingFund": "Short-duration debt funds"
+      },
+      {
+        "id": "emi-12m-10",
+        "tenureMonths": 12,
+        "interestRate": 10.5,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Hybrid mutual funds"
+      }
+    ]
+  },
+  {
+    "slug": "hawkins-contura-cooker",
+    "name": "Hawkins Contura Pressure Cooker",
+    "brand": "Hawkins",
+    "category": "utensils",
+    "description": "Hard-anodised pressure cooker for dal, rice and curries. Available on 1Fi EMI.",
+    "highlights": [
+      "Hard anodised body",
+      "Safety valve and pressure regulator",
+      "3 L and 5 L sizes"
+    ],
+    "variants": [
+      {
+        "sku": "hawkins-contura-silver-3l",
+        "color": "Silver",
+        "storage": "3 L",
+        "mrp": 2499,
+        "sellingPrice": 1999,
+        "imageUrl": "https://images.unsplash.com/photo-1585515320310-259814713e93?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "hawkins-contura-silver-5l",
+        "color": "Silver",
+        "storage": "5 L",
+        "mrp": 3299,
+        "sellingPrice": 2699,
+        "imageUrl": "https://images.unsplash.com/photo-1585515320310-259814713e93?auto=format&fit=crop&w=900&q=80"
+      }
+    ],
+    "emiPlans": [
+      {
+        "id": "emi-3m-0",
+        "tenureMonths": 3,
+        "interestRate": 0,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Liquid mutual funds"
+      },
+      {
+        "id": "emi-6m-0-cb",
+        "tenureMonths": 6,
+        "interestRate": 0,
+        "cashbackAmount": 150,
+        "cashbackLabel": "₹150 cashback on first EMI",
+        "backingFund": "Short-duration debt funds"
+      },
+      {
+        "id": "emi-12m-10",
+        "tenureMonths": 12,
+        "interestRate": 10.5,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Hybrid mutual funds"
+      }
+    ]
+  },
+  {
+    "slug": "milton-thermosteel-flask",
+    "name": "Milton Thermosteel Flask",
+    "brand": "Milton",
+    "category": "utensils",
+    "description": "Vacuum insulated steel flask that keeps drinks hot or cold. Shop on 1Fi EMI.",
+    "highlights": [
+      "24-hour temperature lock",
+      "Leak-proof lid",
+      "500 ml and 1 L"
+    ],
+    "variants": [
+      {
+        "sku": "milton-flask-steel-500",
+        "color": "Steel",
+        "storage": "500 ml",
+        "mrp": 1299,
+        "sellingPrice": 999,
+        "imageUrl": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "milton-flask-black-1l",
+        "color": "Black",
+        "storage": "1 L",
+        "mrp": 1699,
+        "sellingPrice": 1299,
+        "imageUrl": "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&w=900&q=80"
+      }
+    ],
+    "emiPlans": [
+      {
+        "id": "emi-3m-0",
+        "tenureMonths": 3,
+        "interestRate": 0,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Liquid mutual funds"
+      },
+      {
+        "id": "emi-6m-0",
+        "tenureMonths": 6,
+        "interestRate": 0,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Short-duration debt funds"
+      },
+      {
+        "id": "emi-12m-10",
+        "tenureMonths": 12,
+        "interestRate": 10.5,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Hybrid mutual funds"
+      }
+    ]
+  },
+  {
+    "slug": "skinn-celeste-perfume",
+    "name": "Skinn by Titan Celeste",
+    "brand": "Titan",
+    "category": "perfumes",
+    "description": "Floral-woody perfume for daily wear. Available on 1Fi EMI.",
+    "highlights": [
+      "Long-lasting eau de parfum",
+      "Floral woody notes",
+      "50 ml and 100 ml"
+    ],
+    "variants": [
+      {
+        "sku": "skinn-celeste-50",
+        "color": "Celeste",
+        "storage": "50 ml",
+        "mrp": 2495,
+        "sellingPrice": 1995,
+        "imageUrl": "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "skinn-celeste-100",
+        "color": "Celeste",
+        "storage": "100 ml",
+        "mrp": 3495,
+        "sellingPrice": 2795,
+        "imageUrl": "https://images.unsplash.com/photo-1541643600914-78b084683601?auto=format&fit=crop&w=900&q=80"
+      }
+    ],
+    "emiPlans": [
+      {
+        "id": "emi-3m-0",
+        "tenureMonths": 3,
+        "interestRate": 0,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Liquid mutual funds"
+      },
+      {
+        "id": "emi-6m-0-cb",
+        "tenureMonths": 6,
+        "interestRate": 0,
+        "cashbackAmount": 200,
+        "cashbackLabel": "₹200 cashback on first EMI",
+        "backingFund": "Short-duration debt funds"
+      },
+      {
+        "id": "emi-12m-10",
+        "tenureMonths": 12,
+        "interestRate": 10.5,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Hybrid mutual funds"
+      }
+    ]
+  },
+  {
+    "slug": "bella-vita-ceo-man",
+    "name": "Bella Vita CEO Man Perfume",
+    "brand": "Bella Vita",
+    "category": "perfumes",
+    "description": "Best-selling office fragrance with woody and fresh variants. Shop on 1Fi EMI.",
+    "highlights": [
+      "Made in India",
+      "Woody and fresh options",
+      "100 ml bottle"
+    ],
+    "variants": [
+      {
+        "sku": "bella-vita-ceo-woody-100",
+        "color": "Woody",
+        "storage": "100 ml",
+        "mrp": 899,
+        "sellingPrice": 649,
+        "imageUrl": "https://images.unsplash.com/photo-1594035910387-fea47794261f?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "bella-vita-ceo-fresh-100",
+        "color": "Fresh",
+        "storage": "100 ml",
+        "mrp": 899,
+        "sellingPrice": 649,
+        "imageUrl": "https://images.unsplash.com/photo-1615634260167-c8cdede054de?auto=format&fit=crop&w=900&q=80"
+      }
+    ],
+    "emiPlans": [
+      {
+        "id": "emi-3m-0",
+        "tenureMonths": 3,
+        "interestRate": 0,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Liquid mutual funds"
+      },
+      {
+        "id": "emi-6m-0",
+        "tenureMonths": 6,
+        "interestRate": 0,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Short-duration debt funds"
+      },
+      {
+        "id": "emi-12m-10",
+        "tenureMonths": 12,
+        "interestRate": 10.5,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Hybrid mutual funds"
+      }
+    ]
+  },
+  {
+    "slug": "mamaearth-vitamin-c-face-wash",
+    "name": "Mamaearth Vitamin C Face Wash",
+    "brand": "Mamaearth",
+    "category": "beauty",
+    "description": "Vitamin C face wash for bright, clean skin. Shop on 1Fi EMI.",
+    "highlights": [
+      "Toxin-free formula",
+      "Brightens dull skin",
+      "100 ml and 150 ml"
+    ],
+    "variants": [
+      {
+        "sku": "mamaearth-vitc-100",
+        "color": "Orange",
+        "storage": "100 ml",
+        "mrp": 399,
+        "sellingPrice": 349,
+        "imageUrl": "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "mamaearth-vitc-150",
+        "color": "Orange",
+        "storage": "150 ml",
+        "mrp": 499,
+        "sellingPrice": 429,
+        "imageUrl": "https://images.unsplash.com/photo-1556228720-195a672e8a03?auto=format&fit=crop&w=900&q=80"
+      }
+    ],
+    "emiPlans": [
+      {
+        "id": "emi-3m-0",
+        "tenureMonths": 3,
+        "interestRate": 0,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Liquid mutual funds"
+      },
+      {
+        "id": "emi-6m-0",
+        "tenureMonths": 6,
+        "interestRate": 0,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Short-duration debt funds"
+      },
+      {
+        "id": "emi-12m-10",
+        "tenureMonths": 12,
+        "interestRate": 10.5,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Hybrid mutual funds"
+      }
+    ]
+  },
+  {
+    "slug": "lakme-9to5-foundation",
+    "name": "Lakme 9 to 5 Primer + Matte Foundation",
+    "brand": "Lakme",
+    "category": "beauty",
+    "description": "All-day matte foundation for office wear. Available on 1Fi EMI.",
+    "highlights": [
+      "Primer and foundation in one",
+      "Matte finish",
+      "Ivory and Beige shades"
+    ],
+    "variants": [
+      {
+        "sku": "lakme-9to5-ivory",
+        "color": "Ivory",
+        "storage": "15 ml",
+        "mrp": 599,
+        "sellingPrice": 499,
+        "imageUrl": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "lakme-9to5-beige",
+        "color": "Beige",
+        "storage": "15 ml",
+        "mrp": 599,
+        "sellingPrice": 499,
+        "imageUrl": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=900&q=80"
+      }
+    ],
+    "emiPlans": [
+      {
+        "id": "emi-3m-0",
+        "tenureMonths": 3,
+        "interestRate": 0,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Liquid mutual funds"
+      },
+      {
+        "id": "emi-6m-0",
+        "tenureMonths": 6,
+        "interestRate": 0,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Short-duration debt funds"
+      },
+      {
+        "id": "emi-12m-10",
+        "tenureMonths": 12,
+        "interestRate": 10.5,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Hybrid mutual funds"
+      }
+    ]
+  },
+  {
+    "slug": "prestige-mixer-grinder",
+    "name": "Prestige Iris Mixer Grinder",
+    "brand": "Prestige",
+    "category": "appliances",
+    "description": "750W mixer grinder for wet and dry grinding. Pay monthly with 1Fi EMI.",
+    "highlights": [
+      "750W motor",
+      "3 stainless-steel jars",
+      "White and Black"
+    ],
+    "variants": [
+      {
+        "sku": "prestige-iris-white-750",
+        "color": "White",
+        "storage": "750 W",
+        "mrp": 4999,
+        "sellingPrice": 3899,
+        "imageUrl": "https://images.unsplash.com/photo-1570222094114-d054a817e56b?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "prestige-iris-black-750",
+        "color": "Black",
+        "storage": "750 W",
+        "mrp": 4999,
+        "sellingPrice": 3899,
+        "imageUrl": "https://images.unsplash.com/photo-1570222094114-d054a817e56b?auto=format&fit=crop&w=900&q=80"
+      }
+    ],
+    "emiPlans": [
+      {
+        "id": "emi-3m-0",
+        "tenureMonths": 3,
+        "interestRate": 0,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Liquid mutual funds"
+      },
+      {
+        "id": "emi-6m-0-cb",
+        "tenureMonths": 6,
+        "interestRate": 0,
+        "cashbackAmount": 250,
+        "cashbackLabel": "₹250 cashback on first EMI",
+        "backingFund": "Short-duration debt funds"
+      },
+      {
+        "id": "emi-12m-10",
+        "tenureMonths": 12,
+        "interestRate": 10.5,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Hybrid mutual funds"
+      }
+    ]
+  },
+  {
+    "slug": "philips-hair-dryer",
+    "name": "Philips DryCare Hair Dryer",
+    "brand": "Philips",
+    "category": "appliances",
+    "description": "Compact hair dryer with thermo-protect. Shop on 1Fi EMI.",
+    "highlights": [
+      "ThermoProtect temperature",
+      "Foldable handle",
+      "1200 W and 1600 W"
+    ],
+    "variants": [
+      {
+        "sku": "philips-dryer-pink-1200",
+        "color": "Pink",
+        "storage": "1200 W",
+        "mrp": 1795,
+        "sellingPrice": 1495,
+        "imageUrl": "https://images.unsplash.com/photo-1522338140262-f46f5913618a?auto=format&fit=crop&w=900&q=80"
+      },
+      {
+        "sku": "philips-dryer-black-1600",
+        "color": "Black",
+        "storage": "1600 W",
+        "mrp": 2295,
+        "sellingPrice": 1895,
+        "imageUrl": "https://images.unsplash.com/photo-1522338140262-f46f5913618a?auto=format&fit=crop&w=900&q=80"
+      }
+    ],
+    "emiPlans": [
+      {
+        "id": "emi-3m-0",
+        "tenureMonths": 3,
+        "interestRate": 0,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Liquid mutual funds"
+      },
+      {
+        "id": "emi-6m-0",
+        "tenureMonths": 6,
+        "interestRate": 0,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Short-duration debt funds"
+      },
+      {
+        "id": "emi-12m-10",
+        "tenureMonths": 12,
+        "interestRate": 10.5,
+        "cashbackAmount": 0,
+        "cashbackLabel": null,
+        "backingFund": "Hybrid mutual funds"
+      }
+    ]
   }
 ]

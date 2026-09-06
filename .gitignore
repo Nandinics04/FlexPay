@@ -1,8 +1,42 @@
-node_modules
-dist
-coverage
+# dependencies
+node_modules/
+
+# builds and caches
+dist/
+dist-ssr/
+build/
+coverage/
+.cache/
+.vite/
+*.tsbuildinfo
+
+# local env and secrets — keep examples
 .env
+.env.*
+!.env.example
+!**/.env.example
+!.env.production
+!**/.env.production
+*.pem
+credentials.json
+
+# logs
+logs/
 *.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# OS and editor
 .DS_Store
-frontend/dist
-backend/dist
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.local

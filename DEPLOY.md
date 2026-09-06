@@ -19,7 +19,13 @@
 4. Environment variables:
    - `MONGODB_URI` = Atlas URI
    - `FRONTEND_ORIGIN` = your Vercel URL (add it after step 3, then redeploy)
+   - `JWT_SECRET` = a long random string
+   - `GOOGLE_CLIENT_ID` = Google OAuth client ID
+   - `GOOGLE_CLIENT_SECRET` = Google OAuth client secret
+   - `GOOGLE_CALLBACK_URL` = `https://<your-render-service>.onrender.com/api/auth/google/callback`
    - `NODE_ENV` = `production`
+
+   In Google Cloud, create an OAuth 2.0 Web client. Authorized JavaScript origins: `http://localhost:5173` and your Vercel URL. Authorized redirect URI: the `GOOGLE_CALLBACK_URL` above.
 5. Deploy. Open `https://<service>.onrender.com/api/health` and `/api/products`.
 6. First boot seeds the 3 products if the collection is empty.
 
@@ -37,8 +43,9 @@
 
 ## 4. Smoke test
 
-- `https://<vercel>/`
-- `https://<vercel>/products/iphone-17-pro`
+- `https://<vercel>/` (public listing)
+- Sign in or sign up, then open a product
+- `https://<vercel>/products/iphone-17-pro-max`
 - `https://<vercel>/products/samsung-s24-ultra`
 - `https://<vercel>/products/oneplus-13`
 - Change color/storage, select an EMI plan, click Proceed.

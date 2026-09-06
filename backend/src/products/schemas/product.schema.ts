@@ -49,6 +49,17 @@ export class EmiPlan {
 
 export const EmiPlanSchema = SchemaFactory.createForClass(EmiPlan);
 
+@Schema({ _id: false })
+export class ProductMedia {
+  @Prop({ required: true, enum: ['image', 'video'] })
+  type: 'image' | 'video';
+
+  @Prop({ required: true })
+  url: string;
+}
+
+export const ProductMediaSchema = SchemaFactory.createForClass(ProductMedia);
+
 @Schema({ timestamps: true, collection: 'products' })
 export class Product {
   @Prop({ required: true, unique: true, index: true })
@@ -69,6 +80,9 @@ export class Product {
   @Prop({ type: [String], default: [] })
   highlights: string[];
 
+  @Prop({ type: [ProductMediaSchema], default: [] })
+  media: ProductMedia[];
+
   @Prop({ type: [VariantSchema], default: [] })
   variants: Variant[];
 
@@ -77,3 +91,7 @@ export class Product {
 }
 
 export const ProductSchema = SchemaFactory.createForClass(Product);
+
+ProductSchema.index({ name: 1 });
+ProductSchema.index({ brand: 1 });
+ProductSchema.index({ name: 'text', brand: 'text', category: 'text' });

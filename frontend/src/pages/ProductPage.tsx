@@ -2,11 +2,18 @@ import { useEffect, useMemo, useState } from 'react';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { getProduct } from '../api';
 import { BackButton } from '../components/BackButton';
+import { ProductGallery } from '../components/ProductGallery';
+import { DiscountBadge } from '../components/DiscountBadge';
 import { ErrorState, LoadingState } from '../components/LoadingState';
-import { ColorProductShot } from '../components/ColorProductShot';
+import { ProductReviews } from '../components/ProductReviews';
+import { QuantityStepper } from '../components/QuantityStepper';
+import { StarRating } from '../components/StarRating';
+import { WishlistButton } from '../components/WishlistButton';
 import type { EmiPlan, ProductDetail, Variant } from '../types';
+import { categoryLabel, variantLabels } from '../utils/categories';
+import { parseQty } from '../utils/checkout';
 import { calculateMonthlyAmount } from '../utils/emi';
-import { formatInr } from '../utils/money';
+import { discountPercent, formatInr } from '../utils/money';
 
 function findVariant(
   variants: Variant[],
@@ -24,6 +31,18 @@ function findVariant(
 }
 
 const colorSwatch: Record<string, string> = {
+  Steel: 'bg-slate-400',
+  Copper: 'bg-orange-700',
+  Gold: 'bg-amber-400',
+  Celeste: 'bg-rose-200',
+  Woody: 'bg-amber-800',
+  Fresh: 'bg-emerald-300',
+  Original: 'bg-blue-600',
+  Lavender: 'bg-violet-300',
+  Clear: 'bg-slate-100',
+  Orange: 'bg-orange-400',
+  Ivory: 'bg-amber-50',
+  Beige: 'bg-amber-200',
   Silver: 'bg-slate-300',
   'Cosmic Orange': 'bg-orange-500',
   'Titanium Black': 'bg-zinc-800',
@@ -53,6 +72,7 @@ export function ProductPage() {
   const [selectedPlanId, setSelectedPlanId] = useState<string | null>(null);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const [selectedStorage, setSelectedStorage] = useState<string | null>(null);
+  const [quantity, setQuantity] = useState(1);
 
   const load = () => {
     setLoading(true);
@@ -66,10 +86,12 @@ export function ProductPage() {
           searchParams.get('color'),
           searchParams.get('storage'),
         );
+        const qty = parseQty(searchParams.get('qty'));
         setSelectedColor(match.color);
         setSelectedStorage(match.storage);
+        setQuantity(qty);
         setSearchParams(
-          { color: match.color, storage: match.storage },
+          { color: match.color, storage: match.storage, qty: String(qty) },
           { replace: true },
         );
       })
@@ -108,12 +130,12 @@ export function ProductPage() {
     return product.emiPlans.map((plan) => ({
       ...plan,
       monthlyAmount: calculateMonthlyAmount(
-        variant.sellingPrice,
+        variant.sellingPrice * quantity,
         plan.interestRate,
         plan.tenureMonths,
       ),
     }));
-  }, [product, variant]);
+  }, [product, variant, quantity]);
 
   const selectedPlan = plans.find((plan) => plan.id === selectedPlanId) ?? null;
 
@@ -128,8 +150,27 @@ export function ProductPage() {
     );
     setSelectedColor(match.color);
     setSelectedStorage(match.storage);
-        setSearchParams(
-      { color: match.color, storage: match.storage },
+    setSearchParams(
+      {
+        color: match.color,
+        storage: match.storage,
+        qty: String(quantity),
+      },
+      { replace: true },
+    );
+  };
+
+  const updateQuantity = (next: number) => {
+    if (!variant) {
+      return;
+    }
+    setQuantity(next);
+    setSearchParams(
+      {
+        color: variant.color,
+        storage: variant.storage,
+        qty: String(next),
+      },
       { replace: true },
     );
   };
@@ -139,7 +180,7 @@ export function ProductPage() {
       return;
     }
     navigate(
-      `/products/${product.slug}/confirm?color=${encodeURIComponent(variant.color)}&storage=${encodeURIComponent(variant.storage)}&plan=${selectedPlan.id}`,
+      `/products/${product.slug}/confirm?color=${encodeURIComponent(variant.color)}&storage=${encodeURIComponent(variant.storage)}&plan=${selectedPlan.id}&qty=${quantity}`,
     );
   };
 
@@ -156,8 +197,9 @@ export function ProductPage() {
       <BackButton to="/" />
       <div className="grid min-w-0 grid-cols-1 items-start gap-8 lg:grid-cols-2">
       <div className="min-w-0">
-        <ColorProductShot
-          imageUrl={variant.imageUrl}
+        <ProductGallery
+          coverImage={variant.imageUrl}
+          media={product.media}
           color={variant.color}
           alt={`${product.name} ${variant.color} ${variant.storage}`}
         />
@@ -165,28 +207,49 @@ export function ProductPage() {
 
       <div className="min-w-0">
         <p className="text-sm font-medium uppercase tracking-wide text-teal-700">
-          {product.brand} · {product.category}
+          {product.brand} · {categoryLabel(product.category)}
         </p>
-        <h1 className="mt-1 break-words text-2xl font-semibold text-slate-900 sm:text-3xl">
-          {product.name}
-        </h1>
+        <div className="mt-1 flex items-start justify-between gap-3">
+          <h1 className="min-w-0 break-words text-2xl font-semibold text-slate-900 sm:text-3xl">
+            {product.name}
+          </h1>
+          <WishlistButton slug={product.slug} label className="shrink-0" />
+        </div>
         <p className="mt-1 text-slate-500">
           {variant.storage}, {variant.color}
         </p>
+        {product.reviewCount > 0 ? (
+          <div className="mt-2 flex items-center gap-2">
+            <StarRating value={product.avgRating} size="sm" />
+            <span className="text-sm text-slate-500">
+              {product.avgRating} ({product.reviewCount})
+            </span>
+          </div>
+        ) : null}
 
         <div className="mt-4 flex flex-wrap items-end gap-3">
           <span className="text-2xl font-semibold text-slate-900 sm:text-3xl">
-            {formatInr(variant.sellingPrice)}
+            {formatInr(variant.sellingPrice * quantity)}
           </span>
           <span className="pb-1 text-base text-slate-400 line-through sm:text-lg">
-            {formatInr(variant.mrp)}
+            {formatInr(variant.mrp * quantity)}
+          </span>
+          <span className="pb-1">
+            <DiscountBadge
+              percent={discountPercent(variant.mrp, variant.sellingPrice)}
+            />
           </span>
         </div>
         <p className="mt-1 text-sm text-teal-700">Inclusive of all taxes</p>
 
+        <div className="mt-5 flex items-center gap-3">
+          <p className="text-sm font-medium text-slate-700">Quantity</p>
+          <QuantityStepper value={quantity} onChange={updateQuantity} />
+        </div>
+
         <fieldset className="mt-6">
           <legend className="mb-2 text-sm font-medium text-slate-700">
-            Color
+            {variantLabels(product.category).color}
           </legend>
           <div className="flex flex-wrap gap-2">
             {colors.map((color) => {
@@ -214,7 +277,7 @@ export function ProductPage() {
 
         <fieldset className="mt-5">
           <legend className="mb-2 text-sm font-medium text-slate-700">
-            Storage
+            {variantLabels(product.category).storage}
           </legend>
           <div className="flex flex-wrap gap-2">
             {storages.map((storage) => {
@@ -242,8 +305,7 @@ export function ProductPage() {
             Choose an EMI plan
           </h2>
           <p className="mt-1 text-sm text-slate-500">
-            Each plan is financed against a mutual-fund category. Monthly EMI
-            updates when you change color or storage.
+            Monthly EMI updates when you change color or storage.
           </p>
           <div className="mt-4 grid gap-3">
             {plans.map((plan) => (
@@ -277,6 +339,14 @@ export function ProductPage() {
             ))}
           </ul>
         </div>
+
+        <ProductReviews
+          product={product}
+          onSaved={async () => {
+            const next = await getProduct(product.slug);
+            setProduct(next);
+          }}
+        />
       </div>
       </div>
     </div>
@@ -311,11 +381,6 @@ function EmiCard({
           <p className="mt-1 text-sm text-slate-600">
             {plan.tenureMonths} months · {plan.interestRate}% interest
           </p>
-          {plan.backingFund ? (
-            <p className="mt-1 text-xs font-medium text-teal-800">
-              Backed by {plan.backingFund}
-            </p>
-          ) : null}
           {plan.cashbackLabel ? (
             <p className="mt-2 inline-flex rounded-full bg-amber-100 px-2.5 py-1 text-xs font-medium text-amber-800">
               {plan.cashbackLabel}
